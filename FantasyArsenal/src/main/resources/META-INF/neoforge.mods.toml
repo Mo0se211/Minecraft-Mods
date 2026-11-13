@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="fantasyarsenal"
+version="2.0.0"
+displayName="Fantasy Arsenal"
+description='''17 relic weapons and 17 matching armor sets with unique abilities, found in dungeons, structures and weapon shrines around the world.'''
+
+[[dependencies.fantasyarsenal]]
+modId="neoforge"
+type="required"
+versionRange="[21.1,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.fantasyarsenal]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="BOTH"

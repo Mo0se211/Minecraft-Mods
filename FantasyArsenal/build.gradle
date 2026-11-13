@@ -1,0 +1,40 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.141'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = 'FantasyArsenal'
+}
+
+// Minecraft 1.21.1 runs on Java 21
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = project.neo_version
+
+    runs {
+        client { client() }
+        server { server() }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+// All textures, models, loot, structures and abilities are kept in one zip
+// so the project stays small enough to upload through the GitHub website.
+tasks.named('processResources', ProcessResources) {
+    from(zipTree(file('resources.zip')))
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
