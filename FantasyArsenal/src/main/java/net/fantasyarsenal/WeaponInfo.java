@@ -6,7 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 
 /** Display and on-hit data shared by every relic weapon. */
-public record WeaponInfo(ChatFormatting color, ChatFormatting tierColor, String tierName, String[] lore, OnHit onHit) {
+public record WeaponInfo(String id, ChatFormatting color, ChatFormatting tierColor, String tierName, String[] lore, OnHit onHit) {
 
     @FunctionalInterface
     public interface OnHit {
